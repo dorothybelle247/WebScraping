@@ -1,6 +1,6 @@
 import scrapy
 
-class PoseSpider(scrapy.spider):
+class PoseSpider(scrapy.Spider):
     name = "post"
 
     start_urls = [
@@ -10,7 +10,7 @@ class PoseSpider(scrapy.spider):
 
     def parse(self, response):
         page = response.url.split('/')[-1]
-        filename = "post-%s.html" % page
+        filename = 'post-%s.html' % page
         with open(filename, 'wb') as f:
             f.write(response.body)
 
